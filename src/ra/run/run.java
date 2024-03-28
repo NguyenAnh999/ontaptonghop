@@ -34,6 +34,7 @@ public class run {
             System.out.println("================MENU===================");
             System.out.println("1- Quản trị Department: \n" +
                     "2- Quản lý Employee\n" +
+                    "3- in phân trang nhân viên theo Strem ABI" +
                     "4.Thoát ");
             System.out.println("Nhập lựa chọn");
             byte choice = InputMethods.getByte();
@@ -43,6 +44,9 @@ public class run {
                     break;
                 case 2:
                     employeeManage.menuEpl(sc);
+                    break;
+                case 3:
+                    employeeManage.paginationMath();
                     break;
                 case 4:
                     System.out.println("Thoát");

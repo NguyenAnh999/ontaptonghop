@@ -4,6 +4,7 @@ import ra.Support.InputMethods;
 import ra.entity.Department;
 import ra.entity.Employee;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class employeeManage {
@@ -148,6 +149,28 @@ public class employeeManage {
                 System.err.println("chọn sai mời chọn lại");
             }
         }
+    }
+
+    public static void paginationMath(){
+        byte choice =1;
+        int length = Employee.employeeList.size();
+        int pageQuantity = (length%4)==0?length/4:(length/4)+1;
+        int stat;
+        Employee.employeeList.stream().limit(4).toList().forEach(Employee::displayData);
+        System.out.println("=========================trang("+(choice)+"/"+pageQuantity +")==============================");
+      while (true){
+          System.out.println("Mời bạn nhập vào số  trang bạn muốn");
+          System.out.println("nhập 0 để thoát");
+          choice = InputMethods.getByte();
+          stat = (choice-1)*4;
+          if (choice<=0){return;}
+          if (choice<length){
+              Employee.employeeList.stream().skip(stat).limit(4).toList().forEach(Employee::displayData);
+              System.out.println("=========================trang("+(choice)+"/"+pageQuantity +")==============================");
+          }else {
+              System.err.println("nhập sai mời nhập lại");
+          }
+      }
     }
 
 

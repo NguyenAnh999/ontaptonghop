@@ -43,11 +43,8 @@ public class departmentManage {
                     return;
                 default:
                     System.err.println("Nhap sai moi nhap lai");
-
             }
         }
-
-
     }
 
 
